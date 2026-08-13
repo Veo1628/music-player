@@ -138,15 +138,15 @@ fun MusicApp() {
     }
 
     LaunchedEffect(isPlaying, currentItem) {
-    val item = currentItem
-    if (isPlaying && item != null) {
-        val player = PlayerController.get(context)
-        while (isPlaying) {
-            position = player.currentPosition
-            duration = if (player.duration > 0) player.duration else item.duration
-            delay(500)
+        val item = currentItem
+        if (isPlaying && item != null) {
+            val player = PlayerController.get(context)
+            while (isPlaying) {
+                position = player.currentPosition
+                duration = if (player.duration > 0) player.duration else item.duration
+                delay(500)
+            }
         }
-    }
     }
 
     DisposableEffect(Unit) {
@@ -201,4 +201,4 @@ fun MusicApp() {
         Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
             Text("需要音频权限", color = Color.White)
         }
-    } else if (musicList.is
+    } else
