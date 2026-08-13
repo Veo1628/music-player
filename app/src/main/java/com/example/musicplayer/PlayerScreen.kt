@@ -6,7 +6,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -127,18 +126,17 @@ fun PlayerScreen(
                 TextButton(onClick = onPrev) {
                     Text("上一首", color = Color.White)
                 }
-                IconButton(
+                TextButton(
                     onClick = onTogglePlay,
                     modifier = Modifier
                         .size(60.dp)
                         .clip(CircleShape)
                         .background(Color.White.copy(alpha = 0.25f))
                 ) {
-                    Icon(
-                        if (isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
-                        contentDescription = "播放/暂停",
-                        tint = Color.White,
-                        modifier = Modifier.size(30.dp)
+                    Text(
+                        if (isPlaying) "暂停" else "播放",
+                        color = Color.White,
+                        fontWeight = FontWeight.Bold
                     )
                 }
                 TextButton(onClick = onNext) {
