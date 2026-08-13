@@ -9,7 +9,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
@@ -176,11 +175,10 @@ fun NowPlayingBar(
                     overflow = TextOverflow.Ellipsis
                 )
             }
-            IconButton(onClick = onTogglePlay) {
-                Icon(
-                    if (isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
-                    contentDescription = "播放/暂停",
-                    tint = Color.White
+            TextButton(onClick = onTogglePlay) {
+                Text(
+                    if (isPlaying) "暂停" else "播放",
+                    color = Color.White
                 )
             }
         }
