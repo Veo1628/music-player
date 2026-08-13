@@ -1,9 +1,11 @@
 package com.example.musicplayer
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -22,6 +24,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     musicList: List<MusicItem>,
@@ -55,12 +58,14 @@ fun HomeScreen(
             singleLine = true,
             keyboardOptions = KeyboardOptions.Default.copy(imeAction = ImeAction.Search),
             keyboardActions = KeyboardActions(onSearch = { focusManager.clearFocus() }),
-            colors = TextFieldDefaults.outlinedTextFieldColors(
+            colors = OutlinedTextFieldDefaults.colors(
                 focusedBorderColor = Color.White,
                 unfocusedBorderColor = Color.White.copy(alpha = 0.5f),
+                focusedTextColor = Color.White,
+                unfocusedTextColor = Color.White,
                 cursorColor = Color.White,
-                textColor = Color.White,
-                placeholderColor = Color.White.copy(alpha = 0.6f)
+                focusedPlaceholderColor = Color.White.copy(alpha = 0.6f),
+                unfocusedPlaceholderColor = Color.White.copy(alpha = 0.6f)
             )
         )
 
