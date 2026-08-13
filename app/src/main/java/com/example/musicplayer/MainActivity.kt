@@ -138,14 +138,15 @@ fun MusicApp() {
     }
 
     LaunchedEffect(isPlaying, currentItem) {
-        if (isPlaying && currentItem != null) {
-            val player = PlayerController.get(context)
-            while (isPlaying) {
-                position = player.currentPosition
-                duration = if (player.duration > 0) player.duration else currentItem.duration
-                delay(500)
-            }
+    val item = currentItem
+    if (isPlaying && item != null) {
+        val player = PlayerController.get(context)
+        while (isPlaying) {
+            position = player.currentPosition
+            duration = if (player.duration > 0) player.duration else item.duration
+            delay(500)
         }
+    }
     }
 
     DisposableEffect(Unit) {
